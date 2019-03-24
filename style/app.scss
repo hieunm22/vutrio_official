@@ -1,21 +1,16 @@
+@import "~normalize.css/normalize";
 @import "~mappy-breakpoints/mappy-breakpoints";
+@import "./animation";
 @import "./setting";
 @import "./class";
+
+@import url('https://fonts.googleapis.com/css?family=Cutive+Mono|Fira+Mono|Hind|Josefin+Sans|Poppins|Roboto');
 
 body * {
   box-sizing: border-box;
 }
 
 body {
-  @include mappy-query(only-phone) {
-    background: blue;
-  }
-
-  @include mappy-query(lg) {
-    background: red;
-  }
-
-  @include mappy-query(xl) {
-    background: green;
-  }
+  background: $dark2;
+  font-size: 14px;
 }

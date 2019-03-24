@@ -9,6 +9,24 @@ $dark1: #1F242D;
 $dark2: #191C22;
 $dark3: #11151C;
 
+$color-set: (
+  orange-red: #FF5B05,
+  orange-light: #FD8800,
+  yellow: #FFEB00,
+  white: #FFF,
+  ivory: #D6D7D8,
+  gray: #737B86,
+  dark1: #1F242D,
+  dark2: #191C22,
+  dark3: #11151C,
+);
+
+@each $name, $value in $color-set {
+  .text-#{$name} {
+    color: $value;
+  }
+}
+
 $breakpoints: (
   zero: 0px,
   phone: 320px,
