@@ -62,7 +62,6 @@ const config = {
       bakeApiIntoBundle: true,
     }),
   ],
-  sourceMaps: true,
 }
 
 task('clean_all', () => src('dist').clean('dist').exec())

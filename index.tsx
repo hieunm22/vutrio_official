@@ -1,4 +1,5 @@
+import { render } from 'react-dom'
+import Carousel from '@component/Carousel'
 import '@style/app.scss'
 
-
-console.log('hello world')
+render(<Carousel />, document.querySelector('.about--image-slider'))

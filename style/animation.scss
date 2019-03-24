@@ -2,3 +2,9 @@
   from, to { opacity: 0; }
   50% { opacity: 1; }
 }
+
+@keyframes transition-fade {
+  from, to { opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+}
