@@ -1,0 +1,31 @@
+{
+  "name": "vutrio_official",
+  "version": "1.0.0",
+  "description": "vutr.io official source code",
+  "main": "index.js",
+  "dependencies": {
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5"
+  },
+  "devDependencies": {
+    "fuse-box": "^3.7.1",
+    "node-sass": "^4.11.0",
+    "terser": "^3.17.0",
+    "tslint": "^5.14.0",
+    "typescript": "^3.3.4000",
+    "uglify-js": "^3.5.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vutran1710/vutrio_official.git"
+  },
+  "author": "Vu Tran",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vutran1710/vutrio_official/issues"
+  },
+  "homepage": "https://github.com/vutran1710/vutrio_official#readme"
+}
