@@ -4,19 +4,26 @@
   "description": "vutr.io official source code",
   "main": "index.js",
   "dependencies": {
+    "@types/node": "^11.11.6",
+    "dotenv": "^7.0.0",
+    "mappy-breakpoints": "^0.2.3",
+    "normalize.css": "^8.0.1",
     "react": "^16.8.5",
-    "react-dom": "^16.8.5"
+    "react-dom": "^16.8.5",
+    "theaterjs": "^3.2.0"
   },
   "devDependencies": {
     "fuse-box": "^3.7.1",
     "node-sass": "^4.11.0",
     "terser": "^3.17.0",
+    "ts-node": "^8.0.3",
     "tslint": "^5.14.0",
     "typescript": "^3.3.4000",
     "uglify-js": "^3.5.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "tslint -c ./tslint.json './**/*.ts*'",
+    "start": "node -r dotenv/config -r ts-node/register --inspect fuse.ts"
   },
   "repository": {
     "type": "git",

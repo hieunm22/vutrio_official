@@ -1,0 +1,27 @@
+/* Color Set */
+$orange-red: #FF5B05;
+$orange-light: #FD8800;
+$yellow: #FFEB00;
+$white: #FFF;
+$ivory: #D6D7D8;
+$gray: #737B86;
+$dark1: #1F242D;
+$dark2: #191C22;
+$dark3: #11151C;
+
+$breakpoints: (
+  zero: 0px,
+  phone: 320px,
+  phablet: 420px,
+  tablet: 800px,
+  laptop: 1200px,
+);
+
+$mappy-queries: (
+  xs: mappy-bp(min phone),
+  sm: mappy-bp(phone phablet),
+  md: mappy-bp(phablet tablet),
+  lg: mappy-bp(tablet, laptop),
+  xl: mappy-bp(laptop),
+  only-phone: mappy-bp(zero phablet),
+)

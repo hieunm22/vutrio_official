@@ -1,0 +1,21 @@
+@import "~mappy-breakpoints/mappy-breakpoints";
+@import "./setting";
+@import "./class";
+
+body * {
+  box-sizing: border-box;
+}
+
+body {
+  @include mappy-query(only-phone) {
+    background: blue;
+  }
+
+  @include mappy-query(lg) {
+    background: red;
+  }
+
+  @include mappy-query(xl) {
+    background: green;
+  }
+}
