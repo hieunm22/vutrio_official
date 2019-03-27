@@ -22,7 +22,6 @@ const config = {
   homeDir: '.',
   output: 'dist/$name.js',
   target: 'browser@esnext',
-  hash: isProduction,
   cache: !isProduction,
   log: {
     showBundledFiles: true,
@@ -64,8 +63,7 @@ const config = {
   ],
 }
 
-task('clean_all', () => src('dist').clean('dist').exec())
-task('default', ['clean_all'], () => {
+task('default', () => {
   const fuse = FuseBox.init(config)
   const bundle = fuse.bundle('app')
   if (!isProduction) {
