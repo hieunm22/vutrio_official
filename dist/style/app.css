@@ -331,6 +331,9 @@ template {
 .text-white {
   color: #FFF; }
 
+.text-green {
+  color: #99ff00; }
+
 .text-ivory {
   color: #D6D7D8; }
 
@@ -358,8 +361,12 @@ section {
 .project-section {
   background: #1F242D; }
 
+footer {
+  background: #1F242D; }
+
 .flex {
-  display: flex; }
+  display: flex;
+  flex-wrap: wrap; }
   .flex.align-items-center {
     align-items: center; }
   .flex.space-between {
@@ -423,7 +430,8 @@ section {
   font-weight: 900;
   font-size: 18px;
   color: white;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  font-family: 'Josefin Sans', sans-serif; }
 
 .skill-image {
   height: 50px;
@@ -436,6 +444,13 @@ section {
 .skill-content {
   text-align: center;
   font-size: 13px; }
+
+.hidden-stacks {
+  background: #FFF;
+  padding: 20px; }
+  .hidden-stacks > img {
+    margin: 20px;
+    max-height: 80px; }
 
 body * {
   box-sizing: border-box; }
