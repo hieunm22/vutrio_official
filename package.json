@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@types/node": "^11.11.6",
+    "animejs": "^3.0.1",
     "dotenv": "^7.0.0",
     "mappy-breakpoints": "^0.2.3",
     "normalize.css": "^8.0.1",

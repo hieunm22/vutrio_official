@@ -9,14 +9,10 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="/assets/c281d503-favicon.ico" rel="icon" type="image/x-icon" />
+    <!-- <link href="/assets/c281d503-favicon.ico" rel="icon" type="image/x-icon" /> -->
     
   </head>
   <body>
-    <!--[if lt IE 8]>
-      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
     <!-- HEADER -->
     <section>
       <div class="body-container header">
@@ -36,7 +32,9 @@
     <section>
       <div class="body-container about">
         <div class="flex align-items-center space-between nowrap">
-          <div class="about-child-item about--image-slider">
+          <div class="about-child-item about--image-slider" id="slidr-div" style="display: inline">
+            <div data-slidr="one" class="about--image-slider__image" style="background:url(/assets/slide/jude.jpg);"></div>
+            <div data-slidr="two" class="about--image-slider__image" style="background:url(/assets/slide/vale.jpg);"></div>
           </div>
           <div class="about-child-item about--content">
             <div class="about--content__title">
@@ -57,7 +55,7 @@
     <section class="skill-section">
       <div class="body-container">
         <div class="flex align-items-center space-between nowrap">
-          <div class="skill-box">
+          <div class="skill-box" id="backend-box">
             <img alt="backend" src="/assets/backend-icon.png" class="skill-image" />
             <div class="skill-title">
               Backend
@@ -66,7 +64,7 @@
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum nisl ut ante dignissim, at tempor elit pellentesque
             </div>
           </div>
-          <div class="skill-box">
+          <div class="skill-box" id="frontend-box">
             <img alt="frontend" src="/assets/frontend-icon.png" class="skill-image" />
             <div class="skill-title">
               Frontend
@@ -75,7 +73,7 @@
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum nisl ut ante dignissim, at tempor elit pellentesque
             </div>
           </div>
-          <div class="skill-box">
+          <div class="skill-box" id="devops-box">
             <img alt="devops" src="/assets/devop-icon.png" class="skill-image" />
             <div class="skill-title">
               DevOps
@@ -84,7 +82,7 @@
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum nisl ut ante dignissim, at tempor elit pellentesque
             </div>
           </div>
-          <div class="skill-box">
+          <div class="skill-box" id="dapp-box">
             <img alt="dapp" src="/assets/eth-icon.png" class="skill-image" />
             <div class="skill-title">
               ĐApp
@@ -97,27 +95,31 @@
       </div>
     </section>
 
-    <div class="hidden-stacks flex">
-      <img alt="python" src="/assets/backend-stack/python.png" />
-      <img alt="django" src="/assets/backend-stack/django.png" />
-      <img alt="tornado" src="/assets/backend-stack/tornado.png" />
-      <img alt="flask" src="/assets/backend-stack/flask.png" />
-      <img alt="postgres" src="/assets/backend-stack/postgres.png" />
-      <img alt="node" src="/assets/backend-stack/node.png" />
-      <img alt="supervisor" src="/assets/backend-stack/supervisor-gunicorn.png" />
+    <div class="hidden-stacks backend">
+      <div class="body-container">
+        <img alt="python" src="/assets/backend-stack/python.png" />
+        <img alt="django" src="/assets/backend-stack/django.png" />
+        <img alt="tornado" src="/assets/backend-stack/tornado.png" />
+        <img alt="flask" src="/assets/backend-stack/flask.png" />
+        <img alt="postgres" src="/assets/backend-stack/postgres.png" />
+        <img alt="node" src="/assets/backend-stack/node.png" />
+        <img alt="supervisor" src="/assets/backend-stack/supervisor-gunicorn.png" />
+      </div>
     </div>
 
-    <div class="hidden-stacks flex">
-      <img alt="inferno" src="/assets/frontend-stack/inferno.svg" />
-      <img alt="react" src="/assets/frontend-stack/react.png" />
-      <img alt="angular" src="/assets/frontend-stack/angular.png" />
-      <img alt="redux" src="/assets/frontend-stack/redux.png" />
-      <img alt="webpack" src="/assets/frontend-stack/webpack.png" />
-      <img alt="fusebox" src="/assets/frontend-stack/fusebox.png" />
-      <img alt="brunch" src="/assets/frontend-stack/brunch.svg" />
-      <img alt="sass" src="/assets/frontend-stack/sass.png" />
-      <img alt="es6" src="/assets/frontend-stack/es6.jpeg" />
-      <img alt="typescript" src="/assets/frontend-stack/typescript.png" />
+    <div class="hidden-stacks frontend">
+      <div class="body-container">
+        <img alt="inferno" src="/assets/frontend-stack/inferno.svg" />
+        <img alt="react" src="/assets/frontend-stack/react.png" />
+        <img alt="angular" src="/assets/frontend-stack/angular.png" />
+        <img alt="redux" src="/assets/frontend-stack/redux.png" />
+        <img alt="webpack" src="/assets/frontend-stack/webpack.png" />
+        <img alt="fusebox" src="/assets/frontend-stack/fusebox.png" />
+        <img alt="brunch" src="/assets/frontend-stack/brunch.svg" />
+        <img alt="sass" src="/assets/frontend-stack/sass.png" />
+        <img alt="es6" src="/assets/frontend-stack/es6.jpeg" />
+        <img alt="typescript" src="/assets/frontend-stack/typescript.png" />
+      </div>
     </div>
 
     <!-- PROJECT -->
@@ -142,5 +144,6 @@
         Footer
       </div>
     </footer>
+    <script type="text/javascript" src="slide.js"></script>
     <script   type="text/javascript" src="/app.js"></script>
   </body>
