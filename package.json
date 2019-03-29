@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "fuse-box": "^3.7.1",
+    "http-serve": "^1.0.1",
     "node-sass": "^4.11.0",
     "terser": "^3.17.0",
     "ts-node": "^8.0.3",
@@ -24,7 +25,8 @@
   },
   "scripts": {
     "lint": "tslint -c ./tslint.json './**/*.ts*'",
-    "start": "node -r dotenv/config -r ts-node/register --inspect fuse.ts"
+    "start": "node -r dotenv/config -r ts-node/register --inspect fuse.ts",
+    "demo": "http-serve dist"
   },
   "repository": {
     "type": "git",
