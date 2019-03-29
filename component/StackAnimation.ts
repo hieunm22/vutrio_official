@@ -9,10 +9,10 @@ const StackAnimation = () => {
   ]
 
   boxes.forEach(skill => {
-    const viewheight = window.innerHeight
+    const view_height = window.innerHeight
     const skill_box = document.getElementById(`${skill}-box`)
     const close_btn = document.getElementById(`${skill}-stack-close`)
-    console.log(viewheight)
+
     skill_box.onclick = () => anime({
       targets: `.hidden-stacks.${skill}`,
       duration: 500,
@@ -24,7 +24,7 @@ const StackAnimation = () => {
       targets: `.hidden-stacks.${skill}`,
       duration: 500,
       easing: 'easeOutCubic',
-      top: viewheight,
+      top: view_height,
     })
   })
 }

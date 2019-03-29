@@ -165,7 +165,7 @@ footer {
 
 footer {
   margin-top: 80px;
-  padding: 2em;
+  padding: 10px;
 }
 
 .social-links {
@@ -173,10 +173,10 @@ footer {
 }
 
 .social-links a {
-  padding: 0 5px;
-  margin: 0 20px;
+  padding: 10px;
+  margin: 0 10px;
   font-size: 24px;
   cursor: pointer;
-  color: white;
+  color: $dark3;
   &:hover { color: $green; }
 }
