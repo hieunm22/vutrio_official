@@ -123,14 +123,42 @@ footer {
 .hidden-stacks {
   text-align: center;
   width: 100vw;
-  background: $white;
   position: fixed;
   z-index: 99999 !important;
   left: 0;
-  bottom: -500px;
+  bottom: -100vh;
+  height: 100vh;
+}
 
-  img {
-    margin: 20px;
-    max-height: 80px;
+.hidden-stack__header {
+  padding: 20px 0;
+  border-bottom: solid 1px #ddd;
+  background: white;
+  color: $orange-red;
+
+  a {
+    float: left;
+    margin-left: 20px;
+    cursor: pointer;
+    color: $ivory;
+
+    i {
+      font-size: 20px;
+    }
+
+    &:hover {
+      color: $orange-red;
+    }
   }
+}
+
+.hidden-stack__body {
+  background: rgba(white, 0.95);
+  height: 100%;
+  overflow: scroll;
+}
+
+.hidden-stack__body img {
+  height: 90px;
+  margin: 30px;
 }

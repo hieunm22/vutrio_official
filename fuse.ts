@@ -16,7 +16,7 @@ import {
 } from 'fuse-box/sparky'
 
 const isProduction = process.env.STG === 'production'
-const assetExts = ['ico', 'jpg', 'png'].map(ex => `static/*.${ex}`)
+const assetExts = ['jpg', 'png'].map(ex => `static/photo/*.${ex}`)
 
 const config = {
   homeDir: '.',
@@ -38,7 +38,7 @@ const config = {
   },
   plugins: [
     EnvPlugin(process.env),
-    WebIndexPlugin({ template: 'static/index.html' }),
+    WebIndexPlugin({ template: 'static/template/index.html' }),
     CopyPlugin({ files: assetExts }),
     [
       SassPlugin({ importer: true }),
