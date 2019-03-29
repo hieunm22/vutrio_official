@@ -4,8 +4,8 @@ const StackAnimation = () => {
   const boxes = [
     'backend',
     'frontend',
-    //    'devops',
-    // 'dapp',
+    'devops',
+    'dapp',
   ]
 
   boxes.forEach(skill => {

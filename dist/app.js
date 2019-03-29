@@ -28,6 +28,8 @@ const StackAnimation = () => {
     const boxes = [
         'backend',
         'frontend',
+        'devops',
+        'dapp',
     ];
     boxes.forEach(skill => {
         const viewheight = window.innerHeight;
