@@ -14,8 +14,8 @@
     "theaterjs": "^3.2.0"
   },
   "devDependencies": {
+    "browser-sync": "^2.26.3",
     "fuse-box": "^3.7.1",
-    "http-serve": "^1.0.1",
     "node-sass": "^4.11.0",
     "terser": "^3.17.0",
     "ts-node": "^8.0.3",
@@ -26,7 +26,7 @@
   "scripts": {
     "lint": "tslint -c ./tslint.json './**/*.ts*'",
     "start": "node -r dotenv/config -r ts-node/register --inspect fuse.ts",
-    "demo": "http-serve dist"
+    "live": "browser-sync 'http://mylocal.dev' 'dist' --port 4000 -w"
   },
   "repository": {
     "type": "git",
