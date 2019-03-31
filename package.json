@@ -15,22 +15,27 @@
   },
   "devDependencies": {
     "browser-sync": "^2.26.3",
+    "chalk": "^2.4.2",
+    "execa": "^1.0.0",
     "fuse-box": "^3.7.1",
+    "listr": "^0.14.3",
     "node-sass": "^4.11.0",
+    "node-ssh": "^5.1.2",
+    "open": "^6.0.0",
     "ora": "^3.2.0",
     "ssh2-promise": "^0.1.3",
     "terser": "^3.17.0",
     "ts-node": "^8.0.3",
     "tslint": "^5.14.0",
     "typescript": "^3.3.4000",
-    "uglify-js": "^3.5.2",
-    "xa": "^1.1.1"
+    "uglify-js": "^3.5.2"
   },
   "scripts": {
     "lint": "tslint -c ./tslint.json './**/*.ts*'",
-    "start": "node -r dotenv/config -r ts-node/register --inspect fuse.ts",
+    "start": "node -r dotenv/config -r ts-node/register fuse.ts",
+    "build": "DOTENV_CONFIG_PATH=.prod.env node -r dotenv/config -r ts-node/register fuse.ts",
     "live": "browser-sync 'http://mylocal.dev' 'dist' --port 4000 -w",
-    "dep:setup": "node -r dotenv/config -r ts-node/register --inspect deploy.ts dotenv_config_path=.prod.env setup"
+    "dep:setup": "node -r dotenv/config -r ts-node/register deploy.ts dotenv_config_path=.prod.env setup"
   },
   "repository": {
     "type": "git",
