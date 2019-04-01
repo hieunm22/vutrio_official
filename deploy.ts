@@ -14,7 +14,6 @@ const ssh = new node_ssh()
 const spinner = ora()
 
 // Helper functions
-const throwIfError = promise => promise.then(res => { if (res.stderr) throw new Error(res.stderr) })
 const warn = str => spinner.warn(chalk.yellow(str))
 const info = str => spinner.info(chalk.blue(str))
 const fail = str => spinner.fail(chalk.red(str))
@@ -24,54 +23,40 @@ const succeed = str => spinner.succeed(chalk.green(str))
 const setup = new Listr([
   {
     title: 'Checking server connection',
+    task: ctx => ssh.connect({
+      host,
+      username,
+      privateKey,
+    }).then(
+      () => { ctx.conn = ssh },
+      err => { throw new Error(`Cannot establish a connection to server ${host}`) }
+    )
+  },
+  {
+    title: 'Update & install NginX, Certbot',
+    skip: () => true,
     task: async ctx => {
-      const conn = await ssh.connect({
-        host,
-        username,
-        privateKey,
-      }).then(() => ssh, err => { throw new Error(`Cannot establish a connection to server ${host}`) })
-      ctx.conn = conn
+      const conn = ctx.conn
+      await conn.exec('add-apt-repository ppa:certbot/certbot', [], {
+        stream: 'both',
+        stdin: `\n`,
+      })
+      await conn.execCommand('apt-get update -y')
+      await conn.execCommand('DEBIAN_FRONTEND=noninteractive apt-get install nginx python-certbot-nginx -y')
     }
   },
   {
-    title: 'Update apt packages & Install Nginx',
-    task: ctx => new Listr([
-      {
-        title: 'Update existing packages',
-        task: () => throwIfError(ctx.conn.execCommand('apt-get update -y')),
-      },
-      {
-        title: 'Install Nginx',
-        task: () => throwIfError(ctx.conn.execCommand('DEBIAN_FRONTEND=noninteractive apt-get install nginx -y')),
-      }
-    ])
-  },
-  {
     title: 'Config firewall',
-    task: ctx => new Listr([
-      {
-        title: 'Firewall allows ssh',
-        task: () => throwIfError(ctx.conn.execCommand('ufw allow ssh')),
-      },
-      {
-        title: 'Firewall allows NginX',
-        task: () => throwIfError(ctx.conn.execCommand(`ufw allow 'Nginx HTTP'`)),
-      },
-      {
-        title: 'Enable Firewall',
-        task: () => ctx.conn.exec('ufw enable', [], {
-          stream: 'both',
-          stdin: 'y',
-          onStderr: msg => { throw new Error(msg) },
-        }),
-      },
-      {
-        title: 'Verify FireWall Status',
-        task: () => ctx.conn.exec('ufw status', [], {
-          onStdout: str => { ctx.nginx_status = str }
-        }),
-      },
-    ])
+    task: async ctx => {
+      const conn = ctx.conn
+      await conn.execCommand('ufw allow ssh')
+      await conn.execCommand(`ufw allow 'Nginx HTTPS'`)
+      await conn.exec('ufw enable', [], {
+        stream: 'both',
+        stdin: 'y',
+      })
+      await conn.execCommand('ufw status').then(res => { ctx.firewall = res.stdout })
+    },
   },
   {
     title: 'Deploy the App',
@@ -106,28 +91,51 @@ const setup = new Listr([
           }
         },
       },
+    ])
+  },
+  {
+    title: 'Setup NginX & SSL',
+    task: ctx => new Listr([
       {
         title: 'Setup NginX config',
         task: async () => {
           const conn = ctx.conn
-          const localConfig = __dirname + '/nginx.conf'
-          const remoteConfig = '/etc/nginx/sites-available/vutr.io'
           const throwOnError = err => { throw new Error(err) }
-          await conn.putFile(localConfig, remoteConfig).then(void 0, throwOnError)
+          await conn.putFile(__dirname + '/vutr.io.conf', '/etc/nginx/sites-available/vutr.io').then(void 0, throwOnError)
+          await conn.putFile(__dirname + '/nginx.conf', '/etc/nginx/nginx.conf').then(void 0, throwOnError)
           await conn.execCommand('ln -s /etc/nginx/sites-available/vutr.io /etc/nginx/sites-enabled/vutr.io')
           await conn.execCommand('rm -r /etc/nginx/sites-enabled/default')
           await conn.execCommand('systemctl start nginx')
-          await conn.execCommand('nginx -s reload')
         }
       },
-    ])
+      {
+        title: 'Install free SSL',
+        task: async () => {
+          const conn = ctx.conn
+          const execCertbot = 'certbot --nginx --non-interactive --agree-tos --email me@vutr.io --redirect --hsts -d vutr.io -d www.vutr.io'
+          const result = await conn.execCommand(execCertbot)
+          if (result.stderr) { throw new Error(result.stderr) }
+          ctx.certbot = result.stdout
+          await conn.execCommand('nginx -s reload')
+        },
+      },
+      {
+        title: 'Verifying Certbot Renewal Process',
+        task: async () => {
+          const result = await ctx.conn.execCommand('certbot renew --dry-run')
+          if (result.stderr) { throw new Error(result.stderr) }
+        },
+      },
+    ]),
   },
 ])
 
 setup.run().then(ctx => {
   spinner.info(chalk.white.bgBlue.bold(' << UFW Firewall Status >> '))
-  info(ctx.nginx_status)
+  info(ctx.firewall)
+  spinner.info(chalk.white.bgBlue.bold(' << Certbot Message >> '))
+  info(ctx.certbot)
   spinner.info(chalk.white.bgGreen.bold(' DONE '))
-  open('http://' + host)
+  open('vutr.io')
   process.exit()
 }).catch(fail)
