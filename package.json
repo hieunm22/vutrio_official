@@ -35,7 +35,8 @@
     "start": "node -r dotenv/config -r ts-node/register fuse.ts",
     "build": "DOTENV_CONFIG_PATH=.prod.env node -r dotenv/config -r ts-node/register fuse.ts",
     "live": "browser-sync 'http://mylocal.dev' 'dist' --port 4000 -w",
-    "dep:setup": "node -r dotenv/config -r ts-node/register deploy.ts dotenv_config_path=.prod.env setup"
+    "dep:setup": "node -r dotenv/config -r ts-node/register deploy.ts dotenv_config_path=.prod.env setup",
+    "dep:update": "node -r dotenv/config -r ts-node/register deploy.ts dotenv_config_path=.prod.env update"
   },
   "repository": {
     "type": "git",

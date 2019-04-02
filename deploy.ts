@@ -133,10 +133,42 @@ const setup = new Listr([
 
 const update = new Listr([
   {
-    title: 'Rolling update...',
-    skip: () => true,
-    task: () => {},
-  }
+    title: `Checking server connection: ${host}`,
+    task: ctx => ssh.connect({
+      host,
+      username,
+      privateKey,
+    }).then(
+      () => { ctx.conn = ssh },
+      err => { throw new Error(`Cannot establish a connection to server ${host}`) }
+    )
+  },
+  {
+    title: 'Bundle the app for production',
+    task: () => execa.stdout('npm', ['run', 'build']),
+  },
+  {
+    title: 'Copy assets to server',
+    task: async ctx => {
+      const conn = ctx.conn
+      const failed = []
+      const status = await conn.putDirectory(__dirname + '/dist', '/vutr', {
+        recursive: true,
+        tick: (localPath, remotePath, error) => {
+          if (error) { failed.push(localPath) }
+        }
+      })
+
+      if (!status) {
+        const retries = failed.map(file => ({
+          local: file,
+          remote: '/vutr' + file.replace(__dirname + '/dist', '')
+        }))
+        await conn.putFiles(retries).then(void 0, err => { throw new Error(err) })
+      }
+      ctx.failedFiles = failed
+    },
+  },
 ])
 
 if (task === 'setup') {
@@ -151,8 +183,8 @@ if (task === 'setup') {
 
 if (task === 'update') {
   update.run().then(ctx => {
-    spinner.info(chalk.white.bgBlue.bold(' << Updated Finished >> '))
-    info(ctx.copied_files.join(`\n`))
+    spinner.info(chalk.white.bgBlue.bold(' << Update Finished >> '))
+    fail(ctx.failedFiles.join(`\n`))
     open('vutr.io')
     ctx.conn.dispose()
   })

@@ -31,17 +31,18 @@ $color-set: (
 
 $breakpoints: (
   zero: 0px,
-  phone: 320px,
+  phone: 321px,
   phablet: 420px,
   tablet: 800px,
   laptop: 1100px,
 );
 
 $mappy-queries: (
-  xs: mappy-bp(min phone),
+  xs: mappy-bp(zero phone),
   sm: mappy-bp(phone phablet),
   md: mappy-bp(phablet tablet),
   lg: mappy-bp(tablet, laptop),
   xl: mappy-bp(laptop),
-  only-phone: mappy-bp(zero phablet),
+  only-phone: mappy-bp(phone phablet),
+  all-phone: mappy-bp(zero phablet),
 )

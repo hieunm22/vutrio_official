@@ -24,7 +24,7 @@ const StackAnimation = () => {
       targets: `.hidden-stacks.${skill}`,
       duration: 500,
       easing: 'easeOutCubic',
-      top: view_height,
+      top: '200vh',
     })
   })
 }

@@ -354,17 +354,20 @@ template {
 
 section {
   margin-top: 80px; }
+  @media all and (max-width: 26.1875em) {
+    section {
+      margin-top: 20px; } }
 
 .body-container {
   max-width: 1100px;
   width: 100%;
   padding: 10px;
   margin: 0 auto; }
+  @media all and (max-width: 26.1875em) {
+    .body-container {
+      padding: 15px; } }
 
 .project-section {
-  background: #1F242D; }
-
-footer {
   background: #1F242D; }
 
 .flex {
@@ -397,11 +400,16 @@ footer {
   color: #FD8800;
   animation: blink 1s infinite; }
 
-.about {
-  margin-top: 60px; }
+@media all and (max-width: 26.1875em) {
+  .about > .flex {
+    flex-direction: column; } }
 
 .about-child-item {
   width: 48%; }
+  @media all and (max-width: 26.1875em) {
+    .about-child-item {
+      width: 100%;
+      margin-bottom: 20px; } }
 
 .about--content__title {
   color: white;
@@ -418,6 +426,13 @@ footer {
   background-repeat: no-repeat !important;
   width: 100%;
   border-radius: 3px; }
+  @media all and (max-width: 26.1875em) {
+    .about--image-slider__image {
+      height: 250px; } }
+
+@media all and (max-width: 20em) {
+  .skill-section > .flex {
+    flex-direction: column; } }
 
 .skill-box {
   width: 22%;
@@ -428,6 +443,14 @@ footer {
   transition: background 0.5s; }
   .skill-box:hover {
     background: #1F242D; }
+  @media all and (min-width: 20.0625em) and (max-width: 26.1875em) {
+    .skill-box {
+      width: 47%;
+      margin-bottom: 20px; } }
+  @media all and (max-width: 20em) {
+    .skill-box {
+      width: 100%;
+      margin-bottom: 20px; } }
 
 .skill-title {
   text-align: center;
@@ -455,7 +478,7 @@ footer {
   position: fixed;
   z-index: 99999 !important;
   left: 0;
-  bottom: -100vh;
+  top: 200vh;
   height: 100vh; }
 
 .hidden-stack__header {
@@ -476,27 +499,37 @@ footer {
 .hidden-stack__body {
   background: rgba(255, 255, 255, 0.95);
   height: 100%;
-  overflow: scroll; }
+  overflow: scroll;
+  padding-bottom: 40px; }
 
 .hidden-stack__body img {
   height: 90px;
   margin: 30px; }
+  @media all and (max-width: 26.1875em) {
+    .hidden-stack__body img {
+      height: 60px;
+      margin: 20px; } }
 
 footer {
+  background: #11151C;
   margin-top: 80px;
-  padding: 10px; }
+  padding: 10px;
+  padding-bottom: 20px; }
 
 .social-links {
   justify-content: flex-end; }
+  @media all and (max-width: 26.1875em) {
+    .social-links {
+      justify-content: center; } }
 
 .social-links a {
   padding: 10px;
   margin: 0 10px;
   font-size: 24px;
   cursor: pointer;
-  color: #11151C; }
+  color: #D6D7D8; }
   .social-links a:hover {
-    color: #99ff00; }
+    color: #FD8800; }
 
 body * {
   box-sizing: border-box; }
