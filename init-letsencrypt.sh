@@ -1,8 +1,8 @@
 #!/bin/bash
 
-domains=(vutr.io www.vutr.io)
+domains=(vutr.tk www.vutr.tk)
 rsa_key_size=4096
-data_path="./deploy/certbot"
+data_path="./data/certbot"
 email="me@vutr.io"
 staging=0 # Set to 1 if you're testing your setup to avoid hitting request limits
 
