@@ -15,15 +15,15 @@ const StackAnimation = () => {
 
     skill_box.onclick = () => anime({
       targets: `.hidden-stacks.${skill}`,
-      duration: 500,
+      duration: 400,
       easing: 'easeOutSine',
-      top: 0,
+      top: '50vh',
     })
 
     close_btn.onclick = () => anime({
       targets: `.hidden-stacks.${skill}`,
-      duration: 500,
-      easing: 'easeOutCubic',
+      duration: 800,
+      easing: 'easeOutSine',
       top: '200vh',
     })
   })

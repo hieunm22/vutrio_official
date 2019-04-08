@@ -485,16 +485,11 @@ section {
   padding: 20px 0;
   border-bottom: solid 1px #ddd;
   background: white;
-  color: #FF5B05; }
-  .hidden-stack__header a {
-    float: left;
-    margin-left: 20px;
-    cursor: pointer;
-    color: #D6D7D8; }
-    .hidden-stack__header a i {
-      font-size: 20px; }
-    .hidden-stack__header a:hover {
-      color: #FF5B05; }
+  color: #FF5B05;
+  cursor: pointer;
+  display: block; }
+  .hidden-stack__header:hover {
+    background: #eee; }
 
 .hidden-stack__body {
   background: rgba(255, 255, 255, 0.95);
@@ -503,11 +498,11 @@ section {
   padding-bottom: 40px; }
 
 .hidden-stack__body img {
-  height: 90px;
+  height: 60px;
   margin: 30px; }
   @media all and (max-width: 26.1875em) {
     .hidden-stack__body img {
-      height: 60px;
+      height: 40px;
       margin: 20px; } }
 
 footer {

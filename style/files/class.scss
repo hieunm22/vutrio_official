@@ -164,20 +164,11 @@ section {
   border-bottom: solid 1px #ddd;
   background: white;
   color: $orange-red;
+  cursor: pointer;
+  display: block;
 
-  a {
-    float: left;
-    margin-left: 20px;
-    cursor: pointer;
-    color: $ivory;
-
-    i {
-      font-size: 20px;
-    }
-
-    &:hover {
-      color: $orange-red;
-    }
+  &:hover {
+    background: #eee;
   }
 }
 
@@ -189,10 +180,10 @@ section {
 }
 
 .hidden-stack__body img {
-  height: 90px;
+  height: 60px;
   margin: 30px;
   @include mappy-query(all-phone) {
-    height: 60px;
+    height: 40px;
     margin: 20px;
   }
 }
