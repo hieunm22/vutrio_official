@@ -72,6 +72,6 @@ task('default', () => {
         .watch('(component|utility|static|style)/**.(ts|tsx|scss|jpg|png|html)')
         .hmr()
   }
-  bundle.instructions('> index.ts')
+  bundle.instructions('> index.tsx')
   return fuse.run()
 })
