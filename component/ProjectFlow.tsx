@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import Coverflow from 'react-coverflow'
+import Coverflow from '@vutr/react-coverflow'
 
 const fn = function () {
   /* do your action */
@@ -8,7 +8,7 @@ const fn = function () {
 
 export default class ProjectFlow extends React.Component {
   state = {
-    active: 0
+    active: 2
   }
 
   data = [
@@ -39,7 +39,11 @@ export default class ProjectFlow extends React.Component {
     },
   ]
 
-  onImageClick = active => () => this.setState({ active })
+  onChangeImage = active => this.setState({ active })
+
+  toggleDetail = idx => {
+    console.log('detail for: ', idx)
+  }
 
   render() {
     const title = this.data[this.state.active].alt
@@ -54,13 +58,13 @@ export default class ProjectFlow extends React.Component {
           enableScroll={false}
           clickable={true}
           active={this.state.active}
+          onChange={this.onChangeImage}
         >
           {this.data.map((item, idx) => (
             <img
-              alt={item.alt}
               src={item.img}
               key={item.href}
-              onClick={this.onImageClick(idx)}
+              data-action={this.toggleDetail}
             />
           ))}
         </Coverflow>
