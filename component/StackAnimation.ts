@@ -8,24 +8,39 @@ const StackAnimation = () => {
     'dapp',
   ]
 
+  let activeStack = undefined
+
   boxes.forEach(skill => {
     const view_height = window.innerHeight
     const skill_box = document.getElementById(`${skill}-box`)
     const close_btn = document.getElementById(`${skill}-stack-close`)
 
-    skill_box.onclick = () => anime({
-      targets: `.hidden-stacks.${skill}`,
+    const hideStack = (sk, cb) => anime({
+      targets: `.hidden-stacks.${sk}`,
+      duration: 400,
+      easing: 'easeOutSine',
+      top: '200vh',
+      complete: () => {
+        activeStack = undefined
+        return cb && cb()
+      },
+    })
+
+    const showStack = sk => anime({
+      targets: `.hidden-stacks.${sk}`,
       duration: 400,
       easing: 'easeOutSine',
       top: '50vh',
+      complete: () => {
+        activeStack = sk
+      }
     })
 
-    close_btn.onclick = () => anime({
-      targets: `.hidden-stacks.${skill}`,
-      duration: 800,
-      easing: 'easeOutSine',
-      top: '200vh',
-    })
+    skill_box.onclick = () => {
+      if (activeStack === skill) return hideStack(activeStack)
+      return activeStack ? hideStack(activeStack, () => showStack(skill)) : showStack(skill)
+    }
+    close_btn.onclick = () => hideStack(skill)
   })
 }
 
