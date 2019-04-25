@@ -1,11 +1,11 @@
 import * as React from 'react'
-import Coverflow from '@vutr/react-coverflow'
+import * as ReactSwipe from 'react-swipe'
 
 const fn = function () {
   /* do your action */
 }
 
-export default class ProjectFlow extends React.Component {
+export default class ProjectSwiper extends React.Component {
   state = {
     active: 2
   }
@@ -38,35 +38,39 @@ export default class ProjectFlow extends React.Component {
     },
   ]
 
-  onChangeImage = active => this.setState({ active })
+  onChangeImage = (idx, el) => {
+    this.setState({ active: idx })
+  }
 
   toggleDetail = idx => {
     console.log('detail for: ', idx)
   }
 
+  reactSwipeEl = undefined
+
   render() {
-    const title = this.data[this.state.active].alt
+    const active = this.state.active
+    const title = this.data[active].alt
+    const setActiveClass = idx => `swiper-image--container${idx === active ? ' active': ''}`
     return (
       <div>
         <h1 className="text-center">{title}</h1>
-        <Coverflow
-          height="550"
-          width="100%"
-          displayQuantityOfSide={2}
-          navigation
-          enableScroll={false}
-          clickable={true}
-          active={this.state.active}
-          onChange={this.onChangeImage}
-        >
-          {this.data.map((item, idx) => (
-            <img
-              src={item.img}
-              key={item.href}
-              data-action={this.toggleDetail}
-            />
-          ))}
-        </Coverflow>
+        <div>
+          <ReactSwipe
+            className="project-swiper"
+            swipeOptions={{
+              continuous: false,
+              callback: this.onChangeImage
+            }}
+            ref={el => (this.reactSwipeEl = el)}
+          >
+            {this.data.map((item, idx) => (
+              <div key={item.href} className={setActiveClass(idx)}>
+                <img src={item.img} />
+              </div>
+            ))}
+          </ReactSwipe>
+        </div>
       </div>
     )
   }

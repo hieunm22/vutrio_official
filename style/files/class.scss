@@ -1,5 +1,5 @@
 section {
-  margin-top: 80px;
+  margin-top: 60px;
 
   @include mappy-query(all-phone) {
     margin-top: 20px;
@@ -196,16 +196,13 @@ footer {
 }
 
 .social-links {
-  justify-content: flex-end;
-  @include mappy-query(all-phone) {
-    justify-content: center;
-  }
+  justify-content: flex-start;
 }
 
 .social-links a {
   padding: 10px;
   margin: 0 10px;
-  font-size: 24px;
+  font-size: 16px;
   cursor: pointer;
   color: $ivory;
   &:hover { color: $orange-light; }
@@ -241,4 +238,24 @@ footer {
     }
   }
 
+}
+
+.swiper-image--container {
+  height: 320px;
+  padding: 10px;
+  text-align: center;
+
+  img {
+    width: 70% !important;
+    height: 70% !important;
+    transform: translateY(48px);
+    transition: width 0.5s, height 0.5s, transform .5s;
+  }
+}
+
+.swiper-image--container.active img {
+  width: 100% !important;
+  height: 100% !important;
+  transition: width 0.5s, height 0.5s, transform .5s;
+  transform: translateY(0);
 }
