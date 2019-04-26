@@ -44,9 +44,8 @@ export default class ProjectFlow extends React.Component {
     const title = this.data[this.state.active].alt
     return (
       <div>
-        <h1 className="text-center">{title}</h1>
         <Coverflow
-          height="550"
+          height="700"
           width="100%"
           displayQuantityOfSide={2}
           navigation
@@ -57,6 +56,7 @@ export default class ProjectFlow extends React.Component {
         >
           {this.data.map((item, idx) => (
             <img
+              alt={item.alt}
               src={item.img}
               key={item.href}
               data-action={this.toggleDetail}

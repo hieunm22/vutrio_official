@@ -5,16 +5,13 @@
 @import "./files//util";
 @import "./files/class";
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Fira+Mono|Hind|Josefin+Sans|Poppins|Roboto');
 
 body * {
   box-sizing: border-box;
 }
 
 body {
-  background: $dark2;
+  background: #1d222a;
   font-size: 14px;
   color: $gray;
-  font-family: 'Open Sans', san-serif;
-  letter-spacing: 1px;
 }

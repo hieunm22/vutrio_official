@@ -14,19 +14,12 @@
     
   </head>
   <body>
-    <!-- HEADER -->
-    <section class="header">
-      <div class="body-container header">
-        <div class="flex align-items-center header--main-title">
-          <div class="header--main-title__text">vutr</div>
-          <div class="header--main-title__cursor">|</div>
-        </div>
-        <div class="flex header--subtitle">
-          <div class="header--subtitle__text">
-            "the <span class="text-orange-red">fullstack</span> engineer guy who {} doesn't suck...".format(<span class="text-green">'sometimes :('</span>)
-          </div>
-        </div>
-        <div class="flex social-links">
+    <div class="body-container contact">
+      <div class="flex social-links align-items-center space-between">
+        <a class="author">
+          vutr
+        </a>
+        <div>
           <a>
             <i class="fab fa-github"></i>
           </a>
@@ -44,149 +37,9 @@
           </a>
         </div>
       </div>
-    </section>
-
-    <!-- SLIDER & ABOUT -->
-    <section>
-      <div class="body-container about">
-        <div class="flex align-items-center space-between nowrap">
-          <div class="about-child-item about--image-slider" id="slidr-div" style="display: inline">
-            <div data-slidr="one" class="about--image-slider__image" style="background:url(/assets/slide/jude.jpg);"></div>
-            <div data-slidr="two" class="about--image-slider__image" style="background:url(/assets/slide/vale.jpg);"></div>
-          </div>
-          <div class="about-child-item about--content">
-            <div class="about--content__title">
-              Who am I?
-            </div>
-            <div class="about--content__text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum nisl ut ante dignissim, at tempor elit pellentesque. Donec cursus semper arcu semper vestibulum. Morbi et nibh quis nulla mollis vehicula nec luctus nulla. In eleifend rhoncus sagittis. Donec non odio vel neque laoreet aliquet vel quis dui. Duis id metus nisl. Aliquam a est in neque maximus maximus. Maecenas fringilla nibh porta libero eleifend, quis tempus leo auctor. Vestibulum non felis vel nibh laoreet semper vel eu nisi.Donec non odio vel neque laoreet aliquet vel quis dui. Duis id metus nisl.
-            </div>
-            <div class="about--content__text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum nisl ut ante dignissim, at tempor elit pellentesque. Donec cursus semper arcu semper vestibulum. Morbi et nibh quis nulla mollis vehicula nec luctus nulla.Donec non odio vel neque laoreet aliquet vel quis dui. Duis id metus nisl.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section class="skill-section">
-      <div class="body-container">
-        <div class="flex align-items-center space-between">
-          <div class="skill-box" id="backend-box">
-            <img alt="backend" src="/assets/backend-icon.png" class="skill-image" />
-            <div class="skill-title">
-              Backend
-            </div>
-            <div class="skill-content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum nisl ut ante dignissim, at tempor elit pellentesque
-            </div>
-          </div>
-          <div class="skill-box" id="frontend-box">
-            <img alt="frontend" src="/assets/frontend-icon.png" class="skill-image" />
-            <div class="skill-title">
-              Frontend
-            </div>
-            <div class="skill-content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum nisl ut ante dignissim, at tempor elit pellentesque
-            </div>
-          </div>
-          <div class="skill-box" id="devops-box">
-            <img alt="devops" src="/assets/devop-icon.png" class="skill-image" />
-            <div class="skill-title">
-              DevOps
-            </div>
-            <div class="skill-content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum nisl ut ante dignissim, at tempor elit pellentesque
-            </div>
-          </div>
-          <div class="skill-box" id="dapp-box">
-            <img alt="dapp" src="/assets/eth-icon.png" class="skill-image" />
-            <div class="skill-title">
-              ĐApp
-            </div>
-            <div class="skill-content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum nisl ut ante dignissim, at tempor elit pellentesque
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="hidden-stacks backend">
-      <a class="hidden-stack__header" id="backend-stack-close">
-        Backend
-      </a>
-      <div class="hidden-stack__body">
-        <div class="body-container">
-          <div class="flex">
-            <img alt="python" src="/assets/backend-stack/python.png" />
-            <img alt="django" src="/assets/backend-stack/django.png" />
-            <img alt="tornado" src="/assets/backend-stack/tornado.png" />
-            <img alt="flask" src="/assets/backend-stack/flask.png" />
-            <img alt="postgres" src="/assets/backend-stack/postgres.png" />
-            <img alt="node" src="/assets/backend-stack/node.png" />
-            <img alt="supervisor" src="/assets/backend-stack/supervisor-gunicorn.png" />
-          </div>
-        </div>
-      </div>
     </div>
-
-    <div class="hidden-stacks frontend">
-      <a class="hidden-stack__header" id="frontend-stack-close">
-        Frontend
-      </a>
-      <div class="hidden-stack__body">
-        <div class="body-container">
-          <div class="flex">
-            <img alt="inferno" src="/assets/frontend-stack/inferno.svg" />
-            <img alt="react" src="/assets/frontend-stack/react.png" />
-            <img alt="angular" src="/assets/frontend-stack/angular.png" />
-            <img alt="redux" src="/assets/frontend-stack/redux.png" />
-            <img alt="webpack" src="/assets/frontend-stack/webpack.png" />
-            <img alt="fusebox" src="/assets/frontend-stack/fusebox.png" />
-            <img alt="brunch" src="/assets/frontend-stack/brunch.svg" />
-            <img alt="sass" src="/assets/frontend-stack/sass.png" />
-            <img alt="es6" src="/assets/frontend-stack/es6.jpeg" />
-            <img alt="typescript" src="/assets/frontend-stack/typescript.png" />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hidden-stacks devops">
-      <a class="hidden-stack__header" id="devops-stack-close">
-        Devops
-      </a>
-      <div class="hidden-stack__body">
-        <div class="body-container">
-          <div class="flex">
-            <img alt="term" src="/assets/devops-stack/term.png" />
-            <img alt="docker" src="/assets/devops-stack/docker.png" />
-            <img alt="nginx" src="/assets/devops-stack/nginx.png" />
-            <img alt="travis" src="/assets/devops-stack/travis.png" />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hidden-stacks dapp">
-      <a class="hidden-stack__header" id="dapp-stack-close">
-        Dapp
-      </a>
-      <div class="hidden-stack__body">
-        <div class="body-container">
-          <div class="flex">
-            <img alt="solidity" src="/assets/dapp-stack/solidity.png" />
-            <img alt="remix" src="/assets/dapp-stack/remix.svg" />
-            <img alt="metamask" src="/assets/dapp-stack/metamask.png" />
-            <img alt="truffle-suite" src="/assets/dapp-stack/truffle.png" />
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- PROJECT -->
+
     <section class="project-section">
       <div class="body-container" id="project-flow">
       </div>
