@@ -24,8 +24,8 @@ const config = {
   target: 'browser@esnext',
   cache: !isProduction,
   log: {
-    showBundledFiles: true,
-    clearTerminalOnBundle: true,
+    showBundledFiles: !isProduction,
+    clearTerminalOnBundle: !isProduction,
   },
   autoImport: {
     React: 'react',
@@ -36,6 +36,7 @@ const config = {
     '@static': '~/static',
     '@style': '~/style',
   },
+  sourceMaps: false,
   plugins: [
     EnvPlugin(process.env),
     WebIndexPlugin({ template: 'static/template/index.html' }),
@@ -58,7 +59,7 @@ const config = {
       replaceProcessEnv: true,
       treeshake: true,
       uglify: true,
-      bakeApiIntoBundle: true,
+      bakeApiIntoBundle: 'app',
     }),
   ],
 }
