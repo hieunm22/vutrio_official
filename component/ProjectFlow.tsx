@@ -1,10 +1,6 @@
 import * as React from 'react'
 import Coverflow from '@vutr/react-coverflow'
 
-const fn = function () {
-  /* do your action */
-}
-
 export default class ProjectFlow extends React.Component {
   state = {
     active: 2

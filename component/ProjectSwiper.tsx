@@ -1,10 +1,6 @@
 import * as React from 'react'
 import * as ReactSwipe from 'react-swipe'
 
-const fn = function () {
-  /* do your action */
-}
-
 export default class ProjectSwiper extends React.Component {
   state = {
     active: 2
