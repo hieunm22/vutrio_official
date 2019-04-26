@@ -3,7 +3,7 @@ import * as ReactSwipe from 'react-swipe'
 
 export default class ProjectSwiper extends React.Component {
   state = {
-    active: 2
+    active: 0
   }
 
   data = [
